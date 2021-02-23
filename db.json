@@ -1,0 +1,400 @@
+{
+  "users": [
+    {
+      "name": "demo",
+      "email": "demo@demo",
+      "password": "demo",
+      "id": "1"
+    },
+    {
+      "name": "test",
+      "email": "test@test",
+      "password": "test",
+      "id": "h7yd8w0klb4h0vc"
+    },
+    {
+      "name": "gggg",
+      "email": "ggg@ggg",
+      "password": "ggg",
+      "id": "h7ydcxgklcpy0u0"
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Банк",
+      "user_id": "1",
+      "id": "1"
+    },
+    {
+      "name": "Магазин",
+      "user_id": "1",
+      "id": "2"
+    },
+    {
+      "name": "Бизнес",
+      "user_id": "1",
+      "id": "3"
+    },
+    {
+      "name": "test",
+      "user_id": "h7yd8w0klb4h0vc",
+      "id": "h7ydbu4klb8ey8q"
+    },
+    {
+      "name": "test2",
+      "user_id": "h7yd8w0klb4h0vc",
+      "id": "h7ydaf4klb8vj1u"
+    },
+    {
+      "name": "тест",
+      "user_id": "h7yd8w0klb4h0vc",
+      "id": "h7yd5zcklb8z7c4"
+    },
+    {
+      "name": "Ринат",
+      "user_id": "h7yd8w0klb4h0vc",
+      "id": "h7ydaq0klcpoysl"
+    },
+    {
+      "name": "ggg",
+      "user_id": "h7ydcxgklcpy0u0",
+      "id": "h7ydpgklcpy71n"
+    },
+    {
+      "name": "1",
+      "user_id": "h7ydcxgklcpy0u0",
+      "id": "h7ydcwgklcq3yur"
+    },
+    {
+      "name": "asa",
+      "user_id": "h7yd8w0klb4h0vc",
+      "id": "h7ydjvcklgzhnx3"
+    }
+  ],
+  "transactions": [
+    {
+      "account_id": "1",
+      "created_at": "2019-09-15 10:24:02",
+      "id": "1",
+      "name": "Кредит",
+      "sum": 5000,
+      "type": "expense",
+      "user_id": "1"
+    },
+    {
+      "account_id": "1",
+      "created_at": "2019-09-17 15:53:02",
+      "id": "2",
+      "name": "Баланс на дебетовке",
+      "sum": 3200,
+      "type": "income",
+      "user_id": "1"
+    },
+    {
+      "account_id": "1",
+      "created_at": "2019-09-19 20:12:02",
+      "id": "3",
+      "name": "Копилка",
+      "sum": 1500,
+      "type": "income",
+      "user_id": "1"
+    },
+    {
+      "account_id": "2",
+      "created_at": "2019-09-26 16:23:02",
+      "id": "4",
+      "name": "Молочные продукты",
+      "sum": 100,
+      "type": "income",
+      "user_id": "1"
+    },
+    {
+      "account_id": "2",
+      "created_at": "2019-09-25 15:03:02",
+      "id": "5",
+      "name": "Фрукты",
+      "sum": 250,
+      "type": "income",
+      "user_id": "1"
+    },
+    {
+      "account_id": "2",
+      "created_at": "2019-09-25 15:03:02",
+      "id": "17",
+      "name": "Овощи",
+      "sum": 300,
+      "type": "income",
+      "user_id": "1"
+    },
+    {
+      "account_id": "2",
+      "created_at": "2019-09-26 14:47:02",
+      "id": "6",
+      "name": "Мясо",
+      "sum": 600,
+      "type": "income",
+      "user_id": "1"
+    },
+    {
+      "account_id": "2",
+      "created_at": "2019-09-27 13:27:02",
+      "id": "7",
+      "name": "Долг в банк",
+      "sum": 5000,
+      "type": "expense",
+      "user_id": "1"
+    },
+    {
+      "account_id": "3",
+      "created_at": "2017-10-15 13:27:02",
+      "id": "9",
+      "name": "На банду",
+      "sum": 15000,
+      "type": "expense",
+      "user_id": "1"
+    },
+    {
+      "account_id": "3",
+      "created_at": "2017-09-17 13:27:02",
+      "id": "10",
+      "name": "На стволы",
+      "sum": 6000,
+      "type": "expense",
+      "user_id": "1"
+    },
+    {
+      "account_id": "3",
+      "created_at": "2017-12-27 13:27:02",
+      "id": "11",
+      "name": "Прибыль с банка",
+      "sum": 1500000,
+      "type": "income",
+      "user_id": "1"
+    },
+    {
+      "account_id": "3",
+      "created_at": "2018-01-15 13:27:02",
+      "id": "12",
+      "name": "Прибыль с магазина",
+      "sum": 300000,
+      "type": "income",
+      "user_id": "1"
+    },
+    {
+      "account_id": "3",
+      "created_at": "2018-01-15 13:27:02",
+      "id": "13",
+      "name": "Подарок сизого",
+      "sum": 20000,
+      "type": "income",
+      "user_id": "1"
+    },
+    {
+      "account_id": "3",
+      "created_at": "2017-09-15 13:27:02",
+      "id": "14",
+      "name": "На охрану",
+      "sum": 60000,
+      "type": "expense",
+      "user_id": "1"
+    },
+    {
+      "account_id": "3",
+      "created_at": "2017-10-15 13:27:02",
+      "id": "15",
+      "name": "На бумер",
+      "sum": 300000,
+      "type": "expense",
+      "user_id": "1"
+    },
+    {
+      "id": "h7yd2a8kldirtye",
+      "type": "EXPENSE",
+      "name": "11",
+      "sum": 11,
+      "account_id": "h7ydbu4klb8ey8q",
+      "user_id": "h7yd8w0klb4h0vc",
+      "created_at": "2021-02-20T09:28:22.885Z"
+    },
+    {
+      "id": "h7ydelgklditcbp",
+      "type": "EXPENSE",
+      "name": "тест",
+      "sum": 1000,
+      "account_id": "h7ydbu4klb8ey8q",
+      "user_id": "h7yd8w0klb4h0vc",
+      "created_at": "2021-02-20T09:29:33.348Z"
+    },
+    {
+      "id": "h7ydefckldiwjmo",
+      "type": "EXPENSE",
+      "name": "1",
+      "sum": 1000,
+      "account_id": "h7ydbu4klb8ey8q",
+      "user_id": "h7yd8w0klb4h0vc",
+      "created_at": "2021-02-20T09:32:02.783Z"
+    },
+    {
+      "id": "h7yd4tokldizr2s",
+      "type": "EXPENSE",
+      "name": "gggg",
+      "sum": 2000,
+      "account_id": "h7ydaf4klb8vj1u",
+      "user_id": "h7yd8w0klb4h0vc",
+      "created_at": "2021-02-20T09:34:32.403Z"
+    },
+    {
+      "id": "h7ydbjckldj1750",
+      "type": "EXPENSE",
+      "name": "nhnh",
+      "sum": 10,
+      "account_id": "h7ydaq0klcpoysl",
+      "user_id": "h7yd8w0klb4h0vc",
+      "created_at": "2021-02-20T09:35:39.875Z"
+    },
+    {
+      "id": "h7ydev8kldj33q9",
+      "type": "EXPENSE",
+      "name": "авто",
+      "sum": 9,
+      "account_id": "h7yd5zcklb8z7c4",
+      "user_id": "h7yd8w0klb4h0vc",
+      "created_at": "2021-02-20T09:37:08.768Z"
+    },
+    {
+      "id": "h7ydd34kldj77kh",
+      "type": "EXPENSE",
+      "name": "ewfsd",
+      "sum": 12,
+      "account_id": "h7yd5zcklb8z7c4",
+      "user_id": "h7yd8w0klb4h0vc",
+      "created_at": "2021-02-20T09:40:20.368Z"
+    },
+    {
+      "id": "h7ydawskldj8di4",
+      "type": "EXPENSE",
+      "name": "1",
+      "sum": 1,
+      "account_id": "h7ydaf4klb8vj1u",
+      "user_id": "h7yd8w0klb4h0vc",
+      "created_at": "2021-02-20T09:41:14.715Z"
+    },
+    {
+      "id": "h7yd7hkkldjbihb",
+      "type": "EXPENSE",
+      "name": "1",
+      "sum": 11,
+      "account_id": "h7ydbu4klb8ey8q",
+      "user_id": "h7yd8w0klb4h0vc",
+      "created_at": "2021-02-20T09:43:41.134Z"
+    },
+    {
+      "id": "h7yd5u4kldjerzb",
+      "type": "EXPENSE",
+      "name": "23",
+      "sum": 23,
+      "account_id": "h7ydbu4klb8ey8q",
+      "user_id": "h7yd8w0klb4h0vc",
+      "created_at": "2021-02-20T09:46:13.414Z"
+    },
+    {
+      "id": "h7yd6fckldjgcnr",
+      "type": "EXPENSE",
+      "name": "1",
+      "sum": 1,
+      "account_id": "h7ydaq0klcpoysl",
+      "user_id": "h7yd8w0klb4h0vc",
+      "created_at": "2021-02-20T09:47:26.870Z"
+    },
+    {
+      "id": "h7yd4k8kldjhgmn",
+      "type": "EXPENSE",
+      "name": "1",
+      "sum": 1,
+      "account_id": "h7ydbu4klb8ey8q",
+      "user_id": "h7yd8w0klb4h0vc",
+      "created_at": "2021-02-20T09:48:18.670Z"
+    },
+    {
+      "id": "h7ydeb8kldjhupk",
+      "type": "EXPENSE",
+      "name": "1",
+      "sum": 1,
+      "account_id": "h7ydaq0klcpoysl",
+      "user_id": "h7yd8w0klb4h0vc",
+      "created_at": "2021-02-20T09:48:36.919Z"
+    },
+    {
+      "id": "h7ydmwkldjo29e",
+      "type": "EXPENSE",
+      "name": "1",
+      "sum": 1,
+      "account_id": "h7ydbu4klb8ey8q",
+      "user_id": "h7yd8w0klb4h0vc",
+      "created_at": "2021-02-20T09:53:26.641Z"
+    },
+    {
+      "id": "h7yd7ekkldk3ny7",
+      "type": "INCOME",
+      "name": "pffgg",
+      "sum": 10000000,
+      "account_id": "h7ydbu4klb8ey8q",
+      "user_id": "h7yd8w0klb4h0vc",
+      "created_at": "2021-02-20T10:05:34.590Z"
+    },
+    {
+      "id": "h7yd4l8klggj9jy",
+      "type": "INCOME",
+      "name": "test233232",
+      "sum": 1000,
+      "account_id": "h7ydaq0klcpoysl",
+      "user_id": "h7yd8w0klb4h0vc",
+      "created_at": "2021-02-22T10:49:02.493Z"
+    },
+    {
+      "id": "h7ydaqgklgq22w6",
+      "type": "INCOME",
+      "name": "fgfgfdg",
+      "sum": 1000,
+      "account_id": "h7yd5zcklb8z7c4",
+      "user_id": "h7yd8w0klb4h0vc",
+      "created_at": "2021-02-22T15:15:36.869Z"
+    },
+    {
+      "id": "h7yd9ksklgrl31c",
+      "type": "INCOME",
+      "name": "ewqeqeq",
+      "sum": 12,
+      "account_id": "h7yd5zcklb8z7c4",
+      "user_id": "h7yd8w0klb4h0vc",
+      "created_at": "2021-02-22T15:58:23.135Z"
+    },
+    {
+      "id": "h7yd4i4klh1ai6z",
+      "type": "INCOME",
+      "name": "bdfy",
+      "sum": 222,
+      "account_id": "h7ydaq0klcpoysl",
+      "user_id": "h7yd8w0klb4h0vc",
+      "created_at": "2021-02-22T20:30:05.722Z"
+    },
+    {
+      "id": "h7ydhp4klh1laq5",
+      "type": "INCOME",
+      "name": "Возврат",
+      "sum": 1000,
+      "account_id": "1",
+      "user_id": "1",
+      "created_at": "2021-02-22T20:38:29.260Z"
+    },
+    {
+      "id": "h7yd4ucklh1q9bf",
+      "type": "EXPENSE",
+      "name": "chop",
+      "sum": 20,
+      "account_id": "2",
+      "user_id": "1",
+      "created_at": "2021-02-22T20:42:20.714Z"
+    }
+  ]
+}

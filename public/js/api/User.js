@@ -8,8 +8,11 @@ class User {
    * Устанавливает текущего пользователя в
    * локальном хранилище.
    * */
+  static URL =  '/user'
   static setCurrent(user) {
-
+    for(let key in user){
+      localStorage.setItem(key, user[key])
+    }
   }
 
   /**
@@ -17,7 +20,7 @@ class User {
    * пользователе из локального хранилища.
    * */
   static unsetCurrent() {
-
+    localStorage.clear()
   }
 
   /**
@@ -25,7 +28,15 @@ class User {
    * из локального хранилища
    * */
   static current() {
-
+    let data = {}
+    for(let key in localStorage) {
+      if (!localStorage.hasOwnProperty(key)) {
+        continue;
+      }
+      data[`${key}`] = localStorage.getItem(key)
+      
+    }
+    return data
   }
 
   /**
@@ -33,7 +44,20 @@ class User {
    * авторизованном пользователе.
    * */
   static fetch(callback) {
-
+    
+    createRequest({
+      url: this.URL + '/current',
+      method: 'GET',
+      responseType: 'json',
+      callback: (err, response)=> {
+        if (response && response.user) {
+          this.setCurrent(response.user);
+        } else if(response.success == false){
+          this.unsetCurrent()
+        }
+        callback
+      }
+    })
   }
 
   /**
@@ -64,7 +88,18 @@ class User {
    * User.setCurrent.
    * */
   static register( data, callback) {
-
+    createRequest({
+      url: this.URL + '/register',
+      method: 'POST',
+      responseType: 'json',
+      data,
+      callback: (err, response) => {
+        if (response && response.user) {
+          this.setCurrent(response.user);
+        }
+        callback(err, response);
+      }
+    });
   }
 
   /**
@@ -72,6 +107,17 @@ class User {
    * выхода необходимо вызвать метод User.unsetCurrent
    * */
   static logout( data, callback) {
-
+    createRequest({
+      url: this.URL + '/logout',
+      method: 'POST',
+      responseType: 'json',
+      data,
+      callback: (err, response) => {
+        if (response.success == true) {
+          this.unsetCurrent();
+        }
+        callback;
+      }
+    });
   }
 }
