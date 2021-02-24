@@ -34,24 +34,27 @@ class TransactionsPage {
   registerEvents() {
     let that = this
     let removeBills = document.querySelector('.remove-account')
-    
     removeBills.addEventListener('click', ()=> {
       event.preventDefault()
-      this.removeAccount()
+        this.removeAccount()
     })
-    if(App.state === "user-logged" && document.querySelector('.transaction__remove')) {
-      let removeTransaction = Array.from(document.querySelectorAll('.transaction__remove'))
-      removeTransaction.forEach(item => {
-        item.addEventListener('click', ()=> { 
-          event.preventDefault()
+     
+    let content = document.querySelector('.content')
+    content.addEventListener('click', (event)=>{
+      let target = event.target;
+      if(target.classList.contains('transaction__remove')){
+        event.preventDefault()
+        const id = {}
+        id.id = target.dataset.id
+        that.removeTransaction(id) 
+      }else if(target.classList.contains('fa-trash')){
+        event.preventDefault()
           const id = {}
-          id.id = item.dataset.id
-          that.removeTransaction(id)
-        })
-      })    
-    }  
+          id.id = target.closest('button').dataset.id
+          that.removeTransaction(id) 
+      }  
+    })
   }
-
   /**
    * Удаляет счёт. Необходимо показать диаголовое окно (с помощью confirm())
    * Если пользователь согласен удалить счёт, вызовите
@@ -63,13 +66,14 @@ class TransactionsPage {
   removeAccount() {
     let data = {}
     data.id = this.lastOptions.account_id
-    if(this.lastOptions) {
-      let quest = confirm('Вы действительно хотите удалить счёт?')
-      if(quest == true) {
+    let quest = confirm('Вы действительно хотите удалить счёт?')
+    if(quest == true) {
+      if(this.lastOptions) {
         Account.remove(data, (err, response)=> {
           if(response.success == true) {
-            this.clear()
             App.update()
+            //this.renderTitle('Название счета')
+            this.clear() 
           } 
         })
       }
@@ -107,13 +111,9 @@ class TransactionsPage {
         }
       })
       Transaction.list(options, (err, response)=> {
-        this.renderTransactions(response.data)
-      
-    })
-    } else {
-      return
-    }
-
+          this.renderTransactions(response.data)
+      })
+    } 
   }
 
   /**
@@ -193,11 +193,12 @@ class TransactionsPage {
   renderTransactions(data){
     let content = document.querySelector('.content')
     content.innerHTML = ''
-    if(data === [])
-      content.innerHTML = data  
+    if(data === []) {
+      content.innerHTML = data
+      this.count = 0
+    }  
     for(let i in data) {
       content.insertAdjacentHTML("afterbegin", this.getTransactionHTML(data[i])) 
-    }
-    this.registerEvents()
+    } 
   }
 }
