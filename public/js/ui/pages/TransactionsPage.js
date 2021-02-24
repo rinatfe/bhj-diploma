@@ -13,15 +13,16 @@ class TransactionsPage {
   constructor( element ) {
     if(!element || element == '')
       throw "Переданный элемент не существует";
-    this.element = element; 
+    this.element = element;
+    this.lastOptions 
     this.registerEvents() 
   }
   /**
    * Вызывает метод render для отрисовки страницы
    * */
   update() {
-    if(this.render.lastOptions)
-      this.render(this.render.lastOptions)
+    if(this.lastOptions)
+      this.render(this.lastOptions)
   }
 
   /**
@@ -35,13 +36,19 @@ class TransactionsPage {
     let removeBills = document.querySelector('.remove-account')
     
     removeBills.addEventListener('click', ()=> {
+      event.preventDefault()
       this.removeAccount()
     })
     if(App.state === "user-logged" && document.querySelector('.transaction__remove')) {
-      let removeTransaction = document.querySelector('.transaction__remove')
-      removeTransaction.addEventListener('click', ()=> {
-        this.removeTransaction(that.element.data.id)
-      })
+      let removeTransaction = Array.from(document.querySelectorAll('.transaction__remove'))
+      removeTransaction.forEach(item => {
+        item.addEventListener('click', ()=> { 
+          event.preventDefault()
+          const id = {}
+          id.id = item.dataset.id
+          that.removeTransaction(id)
+        })
+      })    
     }  
   }
 
@@ -54,14 +61,19 @@ class TransactionsPage {
    * для обновления приложения
    * */
   removeAccount() {
-    if(this.render.lastOptions) {
-      alert('Вы действительно хотите удалить счёт?')
-      Account.remove(this.render.lastOptions, (err, response)=> {
-        if(response.success == true) {
-          App.update()
-        }
-      })
-    }
+    let data = {}
+    data.id = this.lastOptions.account_id
+    if(this.lastOptions) {
+      let quest = confirm('Вы действительно хотите удалить счёт?')
+      if(quest == true) {
+        Account.remove(data, (err, response)=> {
+          if(response.success == true) {
+            this.clear()
+            App.update()
+          } 
+        })
+      }
+    }  
   }
 
   /**
@@ -70,14 +82,15 @@ class TransactionsPage {
    * По удалению транзакции вызовите метод App.update()
    * */
   removeTransaction( id ) {
-    
-    Transaction.remove(id, (err, response)=> {
-      alert('Вы действительно хотите удалить эту транзакцию?')
-      if(response.success) {
-        App.update()
-      }
-    })
-  }
+    let quest = confirm('Вы действительно хотите удалить эту транзакцию?')
+    if(quest == true) {
+      Transaction.remove(id, (err, response)=> {
+        if(response.success == true) {
+          App.update()
+        }
+      })
+    }
+  }  
 
   /**
    * С помощью Account.get() получает название счёта и отображает
@@ -86,16 +99,16 @@ class TransactionsPage {
    * в TransactionsPage.renderTransactions()
    * */
   render(options){
+    this.lastOptions = options
     if(options){
-      this.lastOptions = options.account_id
       Account.get(this.lastOptions, (err, response)=> {
         if(response.success == true) {
-          this.renderTitle(response.data[response.data.findIndex(item => item.id == this.lastOptions)].name)
+          this.renderTitle(response.data[response.data.findIndex(item => item.id == this.lastOptions.account_id)].name)
         }
-      
-      Transaction.list(response.data[response.data.findIndex(item => item.id == this.lastOptions)], (err, response2)=> {
-        this.renderTransactions(response2.data)
       })
+      Transaction.list(options, (err, response)=> {
+        this.renderTransactions(response.data)
+      
     })
     } else {
       return
@@ -179,8 +192,12 @@ class TransactionsPage {
    * */
   renderTransactions(data){
     let content = document.querySelector('.content')
+    content.innerHTML = ''
+    if(data === [])
+      content.innerHTML = data  
     for(let i in data) {
       content.insertAdjacentHTML("afterbegin", this.getTransactionHTML(data[i])) 
     }
+    this.registerEvents()
   }
 }

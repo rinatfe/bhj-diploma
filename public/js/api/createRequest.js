@@ -8,14 +8,16 @@ const createRequest = (options = {}) => {
 
         if(options.method == 'GET') {
             let str = `${options.url}?`
-            let num = 0
-            if(options.data && options.data.length > 0){
+            let num = 1
+            if(options.data /*&& options.data.length > 0*/){
                 for(let i in options.data) { 
-                    num=num+1; 
+                     
                     if(num == Object.keys(options.data).length) 
-                        {str = str + `${i}=${options.data[i]}'`
+                        {str = str + `${i}=${options.data[i]}`
+                        
                     }
-                        else{str = str + `${i}=${options.data[i]}&` 
+                        else{str = str + `${i}=${options.data[i]}&`
+                        num=num+1; 
                     } 
                 }
                 xhr.open('GET', str)
